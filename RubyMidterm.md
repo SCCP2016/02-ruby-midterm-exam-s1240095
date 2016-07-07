@@ -105,10 +105,13 @@ puts  case age
 #b5?c
 #AB?Cd
 
-dat = STDIN.gets
+dat = STDIN.gets.chomp
 puts dat
-puts dat.length-1
-
+puts dat.length
+puts dat.reverse
+puts dat.upcase
+puts dat.slice(1,dat.length-2)
+puts dat.tr("abc","ABC")
 ```
 
 ## 5. 適切なプログラムを書け
@@ -121,6 +124,21 @@ puts dat.length-1
 # 10 1 5 4 17
 # 出力例
 # 1 17 37
+
+def min(x)
+  x.inject{|min,item| if min>item then item else min end }.to_s
+end
+
+def max(x)
+  x.inject{|max,item| if max<item then item else max end }.to_s
+end
+
+def total(x)
+  x.inject{|sum,item| sum +item}.to_s
+end
+
+i=STDIN.gets.split.map(&:to_i)
+puts min(i)+" "+max(i)+" "+total(i)
 
 ```
 
@@ -147,7 +165,11 @@ dir1/ dir2/ dir3/
 http://docs.ruby-lang.org/ja/2.1.0/method/Dir/s/mkdir.html 
 
 ```ruby
+name,val=STDIN.gets.split
 
+for i in 1..val.to_i
+  mkdir(name +i.to_s,)
+end
 ```
 
 ## 7. 適切なプログラムを書け
