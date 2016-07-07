@@ -168,7 +168,7 @@ http://docs.ruby-lang.org/ja/2.1.0/method/Dir/s/mkdir.html
 name,val=STDIN.gets.split
 
 for i in 1..val.to_i
-  mkdir(name +i.to_s,)
+  mkdir(name +i.to_s,0705)
 end
 ```
 
