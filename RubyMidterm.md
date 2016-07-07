@@ -168,8 +168,20 @@ http://docs.ruby-lang.org/ja/2.1.0/method/Dir/s/mkdir.html
 name,val=STDIN.gets.split
 
 for i in 1..val.to_i
-  mkdir(name +i.to_s,0705)
+  if i%2==1 then
+    Dir.mkdir(name+i.to_s,0705)
+  else
+    Dir.mkdir(name+i.to_s,0754)
+  end
 end
+
+# パーミッションについて
+# drwxrwxrwx
+# 最初のdはディレクトリを表す。
+# その次の３つは自分、その次の３つは自分と同じグループのユーザ、
+# その次の３つは他人の権限を表す。
+# r、w、xはそれぞれ読み込み、書き込み、実行の権限を意味する。
+# ディレクトリは移動するためには実行権限も必要。
 ```
 
 ## 7. 適切なプログラムを書け
