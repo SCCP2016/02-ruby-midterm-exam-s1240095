@@ -38,10 +38,10 @@ Bool
 # [答え方の例]
 # 型: 具体例
 
-# Fixnum: 123
-# Bignum: 10000000000000000000
-# Float: 1.2
-# String: "Hello World"
+Fixnum: 123
+Bignum: 10000000000000000000
+Float: 1.2
+String: "Hello World"
 ```
 
 ## 3. 適切なプログラムを書け
