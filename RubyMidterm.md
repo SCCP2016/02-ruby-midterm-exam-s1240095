@@ -166,8 +166,8 @@ http://docs.ruby-lang.org/ja/2.1.0/method/Dir/s/mkdir.html
 
 ```ruby
 name,val=STDIN.gets.split
-
-for i in 1..val.to_i
+i=0
+while ((i+=1)<=val.to_i)
   if i%2==1 then
     Dir.mkdir(name+i.to_s,0705)
   else
@@ -225,9 +225,20 @@ table=[["q" , "e"],["t" , "p"],["b" , "b"],["n" , "w"],["j" , "s"],["u" , "t"],[
 
 et=STDIN.gets.chomp
 
-for i in (0..et.length-1)
-for j in (0..25)
+ret=""
 
+i=-1
+while ((i+=1)<et.length)
+  j=0
+  while ((j+=1)<=25)
+    if table[j][0]==et[i] then
+      ret +=table[j][1]
+    end
+  end
+end
+puts ret
+
+#konnitiwarubytanosii
 ```
 
 ## 8. 適切なプログラムを書け
@@ -257,6 +268,41 @@ KobayashiSaki AizuMisaki ShibuyaRin
 SuzukiSaki OgataMisaki TanakaRin
 ```
 
+
 ```ruby
+
+man=STDIN.gets.split
+woman=STDIN.gets.split
+
+len=if man.length > woman.length then woman.length else man.length end
+
+ret=Array.new(len)
+
+al=("A".."Z").to_a
+ tt=""
+i=-1
+while ((i+=1)<len)
+
+  j=-1
+  while ((j+=1)<al.length)
+    if man[i].index(al[j],1)!=nil then
+      man[i].index(al[j],1)
+      break
+    end
+  end
+  tt +=man[i].slice(0,man[i].index(al[j],1))
+
+  j=-1
+  while ((j+=1)<al.length)
+    if woman[i].index(al[j],1)!=nil then
+      woman[i].index(al[j],1)
+      break
+    end
+  end
+  tt +=woman[i].slice(woman[i].index(al[j],1)..woman[i].length)+" "
+end
+puts tt
+
+
 ```
 
